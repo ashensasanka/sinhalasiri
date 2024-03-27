@@ -1,8 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-import '../pages/dashboard_student.dart';
+import '../navigation/navigation.dart';
 import '../pages/student_loginorregister_page.dart';
 
 class LearnerAuthPage extends StatefulWidget {
@@ -30,7 +29,7 @@ class _LearnerAuthPageState extends State<LearnerAuthPage> {
                   if (documentSnapshot.hasData && documentSnapshot.data != null) {
                     String userRole = documentSnapshot.data!.get('roal');
                     if (userRole == 'student') {
-                      return const DashBoardAdmin();
+                      return const HomeNavigation();
                     } else {
                       return const CircularProgressIndicator();
                     }
